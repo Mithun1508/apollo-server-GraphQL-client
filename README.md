@@ -1,35 +1,47 @@
-Get started with Apollo Server
-This tutorial helps you:
 
-Obtain a basic understanding of GraphQL principles
-Define a GraphQL schema that represents the structure of your data set
-Run an instance of Apollo Server that lets you execute queries against your schema
-This tutorial assumes that you are familiar with the command line and JavaScript and have installed a recent Node.js (v14.16.0+) version. Additionally, for those interested, this tutorial includes an optional section describing how to set up Apollo Server with TypeScript.
 
-Step 1: Create a new project
+1 Obtain a basic understanding of GraphQL principles
+
+2 Define a GraphQL schema that represents the structure of your data set
+
+3 Run an instance of Apollo Server that lets you execute queries against your schema
+
+4 This assumes that you are familiar with the command line and JavaScript and have installed a recent Node.js (v14.16.0+) version. Additionally, for those interested, this  describing how to set up Apollo Server with TypeScript.
+
+## Step 1: Create a new project
+
 From your preferred development directory, create a directory for a new project and cd into it:
+
 mkdir graphql-server-example
+
 cd graphql-server-example
+
 Initialize a new Node.js project with npm (or another package manager you prefer, such as Yarn):
+
 npm init --yes
+
 Your project directory now contains a package.json file.
 
-Step 2: Install dependencies
+## Step 2: Install dependencies
 Applications that run Apollo Server require two top-level dependencies:
 
 graphql (also known as graphql-js) is the library that implements the core GraphQL parsing and execution algorithms.
+
 @apollo/server is the main library for Apollo Server itself. Apollo Server knows how to turn HTTP requests and responses into GraphQL operations and run them in an extensible context with support for plugins and other features.
+
 Run the following command to install both of these packages and save them in your project's node_modules directory:
 
-npm install @apollo/server graphql
+"npm install @apollo/server graphql"
+
 Follow the instructions below to set up with either TypeScript or JavaScript:
 
-Step 3: Define your GraphQL schema
+## Step 3: Define your GraphQL schema
 Every GraphQL server (including Apollo Server) uses a schema to define the structure of data that clients can query. In this example, we'll create a server for querying a collection of books by title and author.
 
 Open index.ts in your preferred code editor and paste the following into it:
 
 index.ts
+
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 
@@ -56,7 +68,7 @@ Adding #graphql to the beginning of a template literal provides GraphQL syntax h
 
 This snippet defines a simple, valid GraphQL schema. Clients will be able to execute a query named books, and our server will return an array of zero or more Books.
 
-Step 4: Define your data set
+## Step 4: Define your data set
 Now that we've defined the structure of our data, we can define the data itself.
 
 Apollo Server can fetch data from any source you connect to (including a database, a REST API, a static object storage service, or even another GraphQL server). For the purposes of this tutorial, we'll hardcode our example data.
@@ -76,7 +88,7 @@ const books = [
 ];
 This snippet defines a simple data set that clients can query. Notice that the two objects in the array each match the structure of the Book type we defined in our schema.
 
-Step 5: Define a resolver
+## Step 5: Define a resolver
 We've defined our data set, but Apollo Server doesn't know that it should use that data set when it's executing a query. To fix this, we create a resolver.
 
 Resolvers tell Apollo Server how to fetch the data associated with a particular type. Because our Book array is hardcoded, the corresponding resolver is straightforward.
@@ -91,7 +103,8 @@ const resolvers = {
     books: () => books,
   },
 };
-Step 6: Create an instance of ApolloServer
+
+## Step 6: Create an instance of ApolloServer
 We've defined our schema, data set, and resolver. Now we need to provide this information to Apollo Server when we initialize it.
 
 Add the following to the bottom of your index.ts file:
@@ -115,7 +128,7 @@ const { url } = await startStandaloneServer(server, {
 console.log(`🚀  Server ready at: ${url}`);
 This tutorial uses Apollo Server's standalone web server. If you'd like to integrate Apollo Server with your favorite web framework such as Express, see our web framework integrations.
 
-Step 7: Start the server
+## Step 7: Start the server
 We're ready to start our server! Run the following from your project's root directory:
 
 npm start
@@ -129,7 +142,7 @@ We can now execute GraphQL queries on our server. To execute our first query, we
 
 Visit http://localhost:4000 in your browser, which will open the Apollo Sandbox:
 
-Apollo Sandbox
+## Apollo Sandbox
 The Sandbox UI includes:
 
 An Operations panel for writing and executing queries (in the middle)
