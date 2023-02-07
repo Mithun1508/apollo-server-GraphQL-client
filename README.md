@@ -1,3 +1,4 @@
+![Screenshot 2023-02-07 082412](https://user-images.githubusercontent.com/93249038/217136507-f3224b33-645f-46ce-94f9-45e6b8a15d02.png)
 
 
 1 Obtain a basic understanding of GraphQL principles
@@ -57,9 +58,9 @@ const typeDefs = `#graphql
     author: String
   }
 
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
+  The "Query" type is special: it lists all of the available queries that
+  clients can execute, along with the return type for each. In this
+  case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
     books: [Book]
   }
