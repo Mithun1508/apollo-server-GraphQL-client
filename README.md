@@ -49,9 +49,9 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 // that together define the "shape" of queries that are executed against
 // your data.
 const typeDefs = `#graphql
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
+  Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
-  # This "Book" type defines the queryable fields for every book in our data source.
+ This "Book" type defines the queryable fields for every book in our data source.
   type Book {
     title: String
     author: String
@@ -64,6 +64,7 @@ const typeDefs = `#graphql
     books: [Book]
   }
 `;
+
 Adding #graphql to the beginning of a template literal provides GraphQL syntax highlighting in supporting IDEs.
 
 This snippet defines a simple, valid GraphQL schema. Clients will be able to execute a query named books, and our server will return an array of zero or more Books.
